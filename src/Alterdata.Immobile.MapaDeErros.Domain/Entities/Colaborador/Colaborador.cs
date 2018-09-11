@@ -7,6 +7,6 @@ namespace Alterdata.Immobile.MapaDeErros.Domain.Entities.Colaborador
 
         public string Nome { get; set; } 
 
-        public DateTime? DataDesativacao { get; set; }
+        public DateTime? DataDesativacao2 { get; set; }
     }
 }
