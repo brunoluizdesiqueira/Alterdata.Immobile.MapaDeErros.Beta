@@ -1,12 +1,24 @@
 namespace Alterdata.Immobile.MapaDeErros.Domain.Entities.Colaborador
 {
     using System;
-    public class Colaborador
+    using Alterdata.Immobile.MapaDeErros.Domain.ValueObjects;
+    using Alterdata.Immobile.MapaDeErros.Shared.Entities;
+
+    public class Colaborador : Entity
     {
-        public int ID { get; set; }
+        public Nome Nome { get; private set; } 
 
-        public string Nome { get; set; } 
+        public DateTime? DataDesativacao { get; private set; }
 
-        public DateTime? DataDesativacao { get; set; }
+        public Colaborador(int id, Nome nome) : base(id)
+        {
+            this.Nome = nome;   
+            AddNotifications(Nome);      
+        }
+
+        public void Inativar()
+        {
+            this.DataDesativacao = DateTime.Now;
+        }
     }
 }
